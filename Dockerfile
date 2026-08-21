@@ -4,13 +4,13 @@ RUN apt-get update && apt-get install -y python3 python3-pip python3-venv && rm 
 
 WORKDIR /opt
 
-COPY requirements.txt .
+COPY ./requirements.txt .
 
 RUN python3 -m venv /opt/devops-course && \
     /opt/devops-course/bin/pip install --upgrade pip && \
     /opt/devops-course/bin/pip install -r requirements.txt
 
-COPY app.py .
+COPY ./app.py .
 
 ENV FLASK_APP=/opt/app.py
 ENV PATH="/opt/devops-course/bin:$PATH"
